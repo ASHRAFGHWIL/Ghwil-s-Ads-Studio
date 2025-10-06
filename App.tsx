@@ -9,10 +9,12 @@ import { useI18n } from './hooks/useI18n';
 const App: React.FC = () => {
   const [productImage, setProductImage] = useState<string | null>(null);
   const [referenceImage, setReferenceImage] = useState<string | null>(null);
+  const [logoSourceImage, setLogoSourceImage] = useState<string | null>(null);
   const [lighting, setLighting] = useState<LightingType>(LightingType.NATURAL_LIGHT);
   const [cameraAngle, setCameraAngle] = useState<CameraAngle>(CameraAngle.FRONT_VIEW);
   const [background, setBackground] = useState<string>('a clean, minimalist surface');
   const [styleIntensity, setStyleIntensity] = useState<number>(75);
+  const [logoSwap, setLogoSwap] = useState<boolean>(false);
   
   const [generatedImage, setGeneratedImage] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -20,9 +22,20 @@ const App: React.FC = () => {
   
   const { t } = useI18n();
 
+  const handleSetLogoSwap = (swap: boolean) => {
+    setLogoSwap(swap);
+    if (!swap) {
+        setLogoSourceImage(null);
+    }
+  }
+
   const handleGenerate = async () => {
     if (!productImage || !referenceImage) {
       setError(t('errors.ERROR_MISSING_IMAGES'));
+      return;
+    }
+    if (logoSwap && !logoSourceImage) {
+      setError(t('errors.ERROR_MISSING_LOGO_IMAGE'));
       return;
     }
 
@@ -34,10 +47,12 @@ const App: React.FC = () => {
       const result = await generateAdImage({
         productImage,
         referenceImage,
+        logoSourceImage,
         lighting,
         cameraAngle,
         background,
         styleIntensity,
+        logoSwap,
       });
       setGeneratedImage(result);
     } catch (e: unknown) {
@@ -66,6 +81,8 @@ const App: React.FC = () => {
               setProductImage={setProductImage}
               referenceImage={referenceImage}
               setReferenceImage={setReferenceImage}
+              logoSourceImage={logoSourceImage}
+              setLogoSourceImage={setLogoSourceImage}
               lighting={lighting}
               setLighting={setLighting}
               cameraAngle={cameraAngle}
@@ -74,6 +91,8 @@ const App: React.FC = () => {
               setBackground={setBackground}
               styleIntensity={styleIntensity}
               setStyleIntensity={setStyleIntensity}
+              logoSwap={logoSwap}
+              setLogoSwap={handleSetLogoSwap}
               onGenerate={handleGenerate}
               isLoading={isLoading}
             />
