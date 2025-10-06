@@ -1,4 +1,3 @@
-
 import { GoogleGenAI, Modality } from "@google/genai";
 import { LightingType, CameraAngle } from '../types';
 
@@ -17,7 +16,7 @@ const getMimeType = (base64Data: string): string => {
 
 export const generateAdImage = async (params: GenerationParams): Promise<string> => {
     if (!process.env.API_KEY) {
-        throw new Error("API_KEY environment variable is not set.");
+        throw new Error("ERROR_API_KEY");
     }
     const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
@@ -68,5 +67,5 @@ export const generateAdImage = async (params: GenerationParams): Promise<string>
         }
     }
 
-    throw new Error("No image was generated. The model may have refused the request. Please check your images and try again.");
+    throw new Error("ERROR_NO_IMAGE_GENERATED");
 };

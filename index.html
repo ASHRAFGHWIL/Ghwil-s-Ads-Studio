@@ -1,15 +1,21 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ghwil's Ads Studio</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <style>
       body {
         background-color: #111827;
+        font-family: 'Inter', sans-serif;
+      }
+      html[lang="ar"] body {
+        font-family: 'Cairo', sans-serif;
       }
     </style>
   <script type="importmap">
@@ -18,7 +24,9 @@
     "react/": "https://aistudiocdn.com/react@^19.2.0/",
     "react": "https://aistudiocdn.com/react@^19.2.0",
     "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.22.0"
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.22.0",
+    "lodash-es": "https://aistudiocdn.com/lodash-es@^4.17.21",
+    "lodash-es/": "https://aistudiocdn.com/lodash-es@^4.17.21/"
   }
 }
 </script>

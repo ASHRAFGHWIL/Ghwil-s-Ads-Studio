@@ -1,15 +1,16 @@
-
 import React, { useRef } from 'react';
 import { UploadIcon } from './Icons';
+import { useI18n } from '../hooks/useI18n';
 
 interface ImageUploaderProps {
   id: string;
-  label: string;
+  labelKey: string;
   onImageUpload: (base64: string) => void;
   previewUrl: string | null;
 }
 
-const ImageUploader: React.FC<ImageUploaderProps> = ({ id, label, onImageUpload, previewUrl }) => {
+const ImageUploader: React.FC<ImageUploaderProps> = ({ id, labelKey, onImageUpload, previewUrl }) => {
+  const { t, lang } = useI18n();
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -48,7 +49,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ id, label, onImageUpload,
   return (
     <div className="w-full">
       <label htmlFor={id} className="block text-sm font-medium text-gray-300 mb-2">
-        {label}
+        {t(labelKey)}
       </label>
       <div
         onClick={handleContainerClick}
@@ -62,9 +63,9 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ id, label, onImageUpload,
           <div className="space-y-1 text-center">
             <UploadIcon className="mx-auto h-12 w-12 text-gray-500" />
             <div className="flex text-sm text-gray-500">
-              <p className="pl-1">Upload a file or drag and drop</p>
+              <p className={lang === 'ar' ? 'pr-1' : 'pl-1'}>{t('uploader.uploadOrDrop')}</p>
             </div>
-            <p className="text-xs text-gray-600">PNG, JPG, GIF up to 10MB</p>
+            <p className="text-xs text-gray-600">{t('uploader.fileTypes')}</p>
           </div>
         )}
         <input

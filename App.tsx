@@ -1,10 +1,10 @@
-
 import React, { useState } from 'react';
 import Header from './components/Header';
 import ControlPanel from './components/ControlPanel';
 import Preview from './components/Preview';
 import { LightingType, CameraAngle } from './types';
 import { generateAdImage } from './services/geminiService';
+import { useI18n } from './hooks/useI18n';
 
 const App: React.FC = () => {
   const [productImage, setProductImage] = useState<string | null>(null);
@@ -17,10 +17,12 @@ const App: React.FC = () => {
   const [generatedImage, setGeneratedImage] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+  
+  const { t } = useI18n();
 
   const handleGenerate = async () => {
     if (!productImage || !referenceImage) {
-      setError("Please upload both a product and a reference image.");
+      setError(t('errors.ERROR_MISSING_IMAGES'));
       return;
     }
 
@@ -39,10 +41,10 @@ const App: React.FC = () => {
       });
       setGeneratedImage(result);
     } catch (e: unknown) {
-      if (e instanceof Error) {
-        setError(e.message);
+      if (e instanceof Error && e.message) {
+        setError(t(`errors.${e.message}`));
       } else {
-        setError("An unknown error occurred during image generation.");
+        setError(t("errors.ERROR_UNKNOWN"));
       }
     } finally {
       setIsLoading(false);

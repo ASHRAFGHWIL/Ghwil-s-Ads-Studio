@@ -1,0 +1,51 @@
+export const ar = {
+  header: {
+    title: "استوديو غويل للإعلانات",
+    subtitle: "حوّل صور منتجاتك إلى إعلانات احترافية باستخدام الذكاء الاصطناعي",
+  },
+  uploader: {
+    productImage: "١. صورة المنتج",
+    referenceImage: "٢. صورة مرجعية للنمط",
+    uploadOrDrop: "ارفع ملفًا أو اسحبه وأفلته هنا",
+    fileTypes: "PNG, JPG, GIF بحجم يصل إلى 10 ميجابايت",
+  },
+  controls: {
+    lighting: "٣. نوع الإضاءة",
+    cameraAngle: "٤. زاوية الكاميرا",
+    background: "٥. وصف الخلفية (اختياري)",
+    backgroundPlaceholder: "مثال: على سطح من الرخام",
+    styleIntensity: "٦. شدة النمط: {intensity}%",
+    generate: "إنشاء الصورة الإعلانية",
+    generating: "جاري الإنشاء...",
+  },
+  preview: {
+    placeholderTitle: "سيظهر إعلانك الذي تم إنشاؤه هنا",
+    placeholderSubtitle: "ارفع الصور وحدد خياراتك للبدء",
+    loaderTitle: "جاري إنشاء تحفتك الفنية...",
+    loaderSubtitle: "الذكاء الاصطناعي يستعد. قد يستغرق هذا بعض الوقت.",
+    errorTitle: "فشل الإنشاء",
+    download: "تنزيل بجودة عالية",
+  },
+  cameraAngles: {
+    "Front View": "منظر أمامي",
+    "Side View": "منظر جانبي",
+    "Top View": "منظر علوي",
+    "45° Angle": "زاوية 45 درجة",
+    "Close-up": "لقطة مقربة",
+    "Macro Shot": "لقطة ماكرو",
+  },
+  lightingTypes: {
+    "Natural Light": "إضاءة طبيعية",
+    "Studio Light": "إضاءة استوديو",
+    "Golden Hour": "الساعة الذهبية",
+    "Blue Hour": "الساعة الزرقاء",
+    "Cinematic": "سينمائية",
+    "Dramatic": "درامية",
+  },
+  errors: {
+    "ERROR_NO_IMAGE_GENERATED": "لم يتم إنشاء أي صورة. ربما رفض النموذج الطلب. يرجى التحقق من صورك والمحاولة مرة أخرى.",
+    "ERROR_UNKNOWN": "حدث خطأ غير معروف أثناء إنشاء الصورة.",
+    "ERROR_MISSING_IMAGES": "يرجى رفع صورة المنتج والصورة المرجعية كليهما.",
+    "ERROR_API_KEY": "متغير البيئة API_KEY غير معين.",
+  },
+};

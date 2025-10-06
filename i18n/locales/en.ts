@@ -1,0 +1,51 @@
+export const en = {
+  header: {
+    title: "Ghwil’s Ads Studio",
+    subtitle: "Transform your product photos into professional ads with AI",
+  },
+  uploader: {
+    productImage: "1. Product Image",
+    referenceImage: "2. Style Reference Image",
+    uploadOrDrop: "Upload a file or drag and drop",
+    fileTypes: "PNG, JPG, GIF up to 10MB",
+  },
+  controls: {
+    lighting: "3. Lighting Type",
+    cameraAngle: "4. Camera Angle",
+    background: "5. Background Description (Optional)",
+    backgroundPlaceholder: "e.g., on a marble countertop",
+    styleIntensity: "6. Style Intensity: {intensity}%",
+    generate: "Generate Ad Visual",
+    generating: "Generating...",
+  },
+  preview: {
+    placeholderTitle: "Your generated ad will appear here",
+    placeholderSubtitle: "Upload images and set your options to get started",
+    loaderTitle: "Generating your masterpiece...",
+    loaderSubtitle: "The AI is warming up. This may take a moment.",
+    errorTitle: "Generation Failed",
+    download: "Download in High Quality",
+  },
+  cameraAngles: {
+    "Front View": "Front View",
+    "Side View": "Side View",
+    "Top View": "Top View",
+    "45° Angle": "45° Angle",
+    "Close-up": "Close-up",
+    "Macro Shot": "Macro Shot",
+  },
+  lightingTypes: {
+    "Natural Light": "Natural Light",
+    "Studio Light": "Studio Light",
+    "Golden Hour": "Golden Hour",
+    "Blue Hour": "Blue Hour",
+    "Cinematic": "Cinematic",
+    "Dramatic": "Dramatic",
+  },
+  errors: {
+    "ERROR_NO_IMAGE_GENERATED": "No image was generated. The model may have refused the request. Please check your images and try again.",
+    "ERROR_UNKNOWN": "An unknown error occurred during image generation.",
+    "ERROR_MISSING_IMAGES": "Please upload both a product and a reference image.",
+    "ERROR_API_KEY": "API_KEY environment variable is not set.",
+  },
+};
